@@ -1,0 +1,5 @@
+# Python deps for the scripts. Install with: pip install -r requirements.txt
+Pillow>=10          # image resize/convert (icon, banner, screenshots)
+PyMuPDF>=1.24       # PDF text + embedded-image extraction
+# PyPDF2 is used only as a text-only fallback when PyMuPDF is absent; not required.
+# System dependency (not pip): ffmpeg  ->  sudo apt install ffmpeg   (video -> GIF)

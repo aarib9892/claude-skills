@@ -1,0 +1,76 @@
+<!--
+  Odoo App Store description page — Vizion Tools house template.
+  RULES (see references/app_store_rules.md):
+    * NO flexbox, grid, gap, transform, or gradients — Odoo's sanitizer strips them on upload.
+    * Default layout is simple stacked blocks; it is mobile-friendly as-is.
+    * Use <table> ONLY for genuinely tabular content (e.g. the optional comparison block below).
+    * Images are referenced RELATIVE to static/description/ and must also be listed in manifest `images`.
+    * Start the file with content — no <!DOCTYPE>, <html>, <head>, or <body>.
+    * Replace every {{PLACEHOLDER}} and delete any block you don't use, including this comment.
+-->
+<section style="max-width:960px; margin:0 auto; padding:16px; font-family:Arial,Helvetica,sans-serif; color:#374151; line-height:1.6;">
+
+  <!-- Do NOT lead with the banner image: it's already the listing cover (manifest images[0]),
+       so repeating it here is redundant. Start with the title. -->
+
+  <!-- Title + one-line summary -->
+  <div style="text-align:center; margin-bottom:28px;">
+    <h1 style="color:#875A7B; font-size:30px; margin:0 0 8px 0;">{{MODULE_NAME}}</h1>
+    <p style="font-size:18px; color:#6b7280; margin:0;">{{SUMMARY}}</p>
+  </div>
+
+  <!-- Optional hero GIF (converted from the marketing video) -->
+  <div style="text-align:center; margin-bottom:28px;">
+    <img src="{{HERO_GIF}}" alt="{{MODULE_NAME}} in action" style="max-width:100%; height:auto; border:1px solid #eee; border-radius:8px;"/>
+  </div>
+
+  <!-- Overview -->
+  <div style="margin-bottom:28px;">
+    <h2 style="color:#875A7B; font-size:22px; border-bottom:2px solid #875A7B; padding-bottom:6px;">Overview</h2>
+    <p style="font-size:16px;">{{DESCRIPTION}}</p>
+  </div>
+
+  <!-- Key features — one stacked block per feature (repeat as needed) -->
+  <div style="margin-bottom:28px;">
+    <h2 style="color:#875A7B; font-size:22px; border-bottom:2px solid #875A7B; padding-bottom:6px;">Key Features</h2>
+
+    <div style="border:1px solid #eee; border-radius:8px; padding:16px; margin-top:16px;">
+      <h3 style="color:#875A7B; font-size:18px; margin:0 0 6px 0;">&#9745; {{FEATURE_TITLE}}</h3>
+      <p style="margin:0;">{{FEATURE_TEXT}}</p>
+    </div>
+    <!-- duplicate the block above for each feature -->
+  </div>
+
+  <!-- Screenshots — one full-width image per row (repeat as needed) -->
+  <div style="margin-bottom:28px;">
+    <h2 style="color:#875A7B; font-size:22px; border-bottom:2px solid #875A7B; padding-bottom:6px;">Screenshots</h2>
+    <div style="text-align:center; margin-top:16px;">
+      <img src="{{SCREENSHOT_IMG}}" alt="{{SCREENSHOT_CAPTION}}" style="max-width:100%; height:auto; border:1px solid #eee; border-radius:8px; margin-bottom:16px;"/>
+      <p style="color:#6b7280; margin:0 0 24px 0;">{{SCREENSHOT_CAPTION}}</p>
+    </div>
+    <!-- duplicate the image block above for each screenshot -->
+  </div>
+
+  <!-- OPTIONAL comparison matrix — the ONE place a <table> is appropriate.
+       Delete this whole block if you have no tabular data. -->
+  <div style="margin-bottom:28px;">
+    <h2 style="color:#875A7B; font-size:22px; border-bottom:2px solid #875A7B; padding-bottom:6px;">At a Glance</h2>
+    <table width="100%" style="border-collapse:collapse; margin-top:16px;">
+      <tr style="background-color:#875A7B; color:#ffffff;">
+        <th style="text-align:left; padding:10px; border:1px solid #ddd;">Capability</th>
+        <th style="text-align:left; padding:10px; border:1px solid #ddd;">Included</th>
+      </tr>
+      <tr>
+        <td style="padding:10px; border:1px solid #ddd;">{{ROW_LABEL}}</td>
+        <td style="padding:10px; border:1px solid #ddd;">&#9745;</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer / brand -->
+  <div style="text-align:center; border-top:1px solid #eee; padding-top:20px; color:#6b7280;">
+    <p style="margin:0 0 4px 0;">Developed by <strong style="color:#875A7B;">Vizion Tools</strong></p>
+    <p style="margin:0;"><a href="https://viziontools.com" style="color:#875A7B;">https://viziontools.com</a></p>
+  </div>
+
+</section>
