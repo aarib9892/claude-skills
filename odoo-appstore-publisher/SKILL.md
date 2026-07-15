@@ -70,15 +70,21 @@ Required checklist:
 ## 5. Process assets into `static/description/`
 
 ```bash
-python scripts/process_images.py icon  <logo_src>      <module>/static/description
-python scripts/process_images.py image <banner_src>    <module>/static/description/banner.png
-python scripts/process_images.py image <shot1_src>     <module>/static/description/main_screenshot.png
-# repeat for each screenshot; name the primary one *_screenshot.png
+python scripts/process_images.py icon  <logo_src>     <module>/static/description
+python scripts/process_images.py image <banner_src>   <module>/static/description/main_screenshot.png
+python scripts/process_images.py image <shot1_src>    <module>/static/description/screenshot_1.png
+python scripts/process_images.py image <shot2_src>    <module>/static/description/screenshot_2.png
+# ... one screenshot_N.png per app screenshot
 python scripts/video_to_gif.py <video>  <module>/static/description/demo.gif
 ```
 
-Icon → 140×140 PNG. Banner/screenshots → PNG/JPG/GIF, width ≤ 1920. The first `*_screenshot` image
-becomes the large listing image, so make it a real demo screen.
+Icon → 140×140 PNG. Everything else → PNG/JPG/GIF, width ≤ 1920.
+
+**House naming convention (match the existing published modules):**
+- The **cover banner** is `main_screenshot.png` — the wide branded graphic, and `images[0]` in the
+  manifest. (`banner.png` is an accepted alternate, but prefer `main_screenshot.png`.)
+- Real app screenshots are `screenshot_1.png`, `screenshot_2.png`, … **Never** name a real screenshot
+  `main_screenshot` — that name is reserved for the banner.
 
 If no icon asset was provided, either generate a simple branded 140×140 (purple `#875A7B` + a glyph)
 or **crop the logo/glyph out of the banner** and feed that to `process_images.py icon` — keeps the
@@ -92,7 +98,7 @@ Edit the dict (keep existing valid values). Set:
 - `version` = `18.0.x.y.z` or `19.0.x.y.z` (match target series; bump from current)
 - `license` = `'LGPL-3'` (free) or `'OPL-1'` (paid)
 - if paid: `price` + `currency` (`'USD'` or `'EUR'` only)
-- `images` = list of icon + banner + every screenshot/GIF you reference
+- `images` = cover banner first (`static/description/main_screenshot.png`), then every screenshot/GIF you reference
 - `support` email, `live_test_url` (YouTube/demo) if provided
 - `application=True`, `installable=True`
 - Verify every `depends` entry is a real module (a bad depend = auto-reject).

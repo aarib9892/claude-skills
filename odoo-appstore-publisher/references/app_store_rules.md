@@ -74,6 +74,10 @@ Manifest format, license values, and version rule are identical — only the `18
   `LICENSE` file at the module root.
 - Don't repeat the banner as the first block of index.html — it's already the listing cover
   (`images[0]`); start the page with the title.
+- **House naming convention:** the cover banner is `main_screenshot.png` (= `images[0]`), a wide
+  branded graphic — NOT a raw app screen. Real app screenshots are `screenshot_1.png`,
+  `screenshot_2.png`, … Never name a real screenshot `main_screenshot`. (`banner.png` is an accepted
+  alternate cover name in older modules; prefer `main_screenshot.png` going forward.)
 
 ---
 
