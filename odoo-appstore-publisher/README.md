@@ -79,6 +79,7 @@ python scripts/validate_module.py ./mod                        # exits non-zero 
 | `SKILL.md` | The procedure Claude follows. |
 | `references/app_store_rules.md` | Odoo App Store rules + a living "Gotchas" log. |
 | `templates/index.html` | House description-page template (stacked layout, no flex/grid). |
+| `assets/vizion_icon.png` | Standard Vizion brand icon, copied to every module (swap for your own brand). |
 | `scripts/extract_pdf.py` | PDF → text + embedded images + hyperlinks (`links.txt`). |
 | `scripts/fetch_drive.py` | Download a linked asset (Google Drive share URL → file). |
 | `scripts/process_images.py` | Icon (140×140 PNG), banner/screenshot normalize. |

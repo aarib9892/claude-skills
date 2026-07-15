@@ -50,8 +50,9 @@ than any embedded copy — prefer them.
 
 From the text, pull: module **name**, **summary** (one line), **description**, **feature list**,
 **price** + **currency** (if paid), **keywords**, and any **video** file names. Look at the extracted
-images and decide which is the **icon/logo**, the **banner**, and the **screenshots** (and their
-order). Image order out of a PDF is unreliable — do not guess silently.
+images and decide which is the **banner** and which are the **screenshots** (and their order). Image
+order out of a PDF is unreliable — do not guess silently. (The icon is not sourced from the PDF — it's
+always the standard `assets/vizion_icon.png`.)
 
 ## 4. Missing / ambiguous gate — ASK IMMEDIATELY  (note #1)
 
@@ -61,7 +62,7 @@ not invent assets or proceed on a guess.
 
 Required checklist:
 - [ ] name  · summary  · description
-- [ ] icon (logo)  · banner  · at least one screenshot
+- [ ] banner (cover)  · at least one screenshot   (icon is always the standard `assets/vizion_icon.png`)
 - [ ] which video file → GIF (videos come as separate files)
 - [ ] price + currency (USD or EUR) — only if paid
 - [ ] license (LGPL-3 free / OPL-1 paid)
@@ -70,7 +71,7 @@ Required checklist:
 ## 5. Process assets into `static/description/`
 
 ```bash
-python scripts/process_images.py icon  <logo_src>     <module>/static/description
+cp assets/vizion_icon.png                             <module>/static/description/icon.png
 python scripts/process_images.py image <banner_src>   <module>/static/description/main_screenshot.png
 python scripts/process_images.py image <shot1_src>    <module>/static/description/screenshot_1.png
 python scripts/process_images.py image <shot2_src>    <module>/static/description/screenshot_2.png
@@ -78,17 +79,17 @@ python scripts/process_images.py image <shot2_src>    <module>/static/descriptio
 python scripts/video_to_gif.py <video>  <module>/static/description/demo.gif
 ```
 
-Icon → 140×140 PNG. Everything else → PNG/JPG/GIF, width ≤ 1920.
+Images → PNG/JPG/GIF, width ≤ 1920.
+
+**Icon: always the same standard Vizion brand icon** — copy `assets/vizion_icon.png` verbatim to every
+module (do NOT generate or crop a per-module icon). It matches the icon the rest of the Vizion catalog
+ships. (A non-Vizion team swaps `assets/vizion_icon.png` for their own brand icon.)
 
 **House naming convention (match the existing published modules):**
 - The **cover banner** is `main_screenshot.png` — the wide branded graphic, and `images[0]` in the
   manifest. (`banner.png` is an accepted alternate, but prefer `main_screenshot.png`.)
 - Real app screenshots are `screenshot_1.png`, `screenshot_2.png`, … **Never** name a real screenshot
   `main_screenshot` — that name is reserved for the banner.
-
-If no icon asset was provided, either generate a simple branded 140×140 (purple `#875A7B` + a glyph)
-or **crop the logo/glyph out of the banner** and feed that to `process_images.py icon` — keeps the
-icon consistent with the banner. Verify the crop visually before shipping.
 
 ## 6. Patch `__manifest__.py`
 
