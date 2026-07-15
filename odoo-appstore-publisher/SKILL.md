@@ -85,11 +85,11 @@ Images → PNG/JPG/GIF, width ≤ 1920.
 module (do NOT generate or crop a per-module icon). It matches the icon the rest of the Vizion catalog
 ships. (A non-Vizion team swaps `assets/vizion_icon.png` for their own brand icon.)
 
-**House naming convention (match the existing published modules):**
-- The **cover banner** is `main_screenshot.png` — the wide branded graphic, and `images[0]` in the
-  manifest. (`banner.png` is an accepted alternate, but prefer `main_screenshot.png`.)
+**House naming convention (STRICT):**
+- The **cover banner** is ALWAYS named `main_screenshot.png` — the wide branded graphic, and
+  `images[0]` in the manifest. No other name (not `banner.png`).
 - Real app screenshots are `screenshot_1.png`, `screenshot_2.png`, … **Never** name a real screenshot
-  `main_screenshot` — that name is reserved for the banner.
+  `main_screenshot` — that name is reserved for the cover banner.
 
 ## 6. Patch `__manifest__.py`
 
@@ -110,9 +110,10 @@ Copy `templates/index.html` and fill the `{{PLACEHOLDERS}}`; delete unused block
 comment. **Rules (enforced in step 9):** stacked/block layout only, mobile-friendly (`max-width:100%`
 images); **no flexbox, grid, gap, transform, gradient, or `d-flex`/`d-grid` classes** — Odoo's
 sanitizer strips them. Use a `<table>` only for genuinely tabular content, never for layout. Purple
-`#875A7B`. Reference images by bare filename (relative to `static/description/`). **Do not lead the
-page with the banner image** — it's already the listing cover (`images[0]`), so repeating it as the
-first block is redundant; start with the title.
+`#875A7B`. Reference images by bare filename (relative to `static/description/`). **The banner/cover
+(`main_screenshot.png`) is NEVER used in index.html** — not at the top, not in any section; it's only
+the manifest cover. The page **always starts with text** (title + summary); place screenshots (and an
+optional demo GIF) in the sections where they fit.
 
 ## 8. LICENSE file
 

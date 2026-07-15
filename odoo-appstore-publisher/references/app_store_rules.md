@@ -72,15 +72,14 @@ Manifest format, license values, and version rule are identical — only the `18
   placeholders — get the real support email or omit the `support` key.
 - Paid module → set `license` = `OPL-1`, `price`, and `currency` (USD/EUR), and ship the OPL-1
   `LICENSE` file at the module root.
-- Don't repeat the banner as the first block of index.html — it's already the listing cover
-  (`images[0]`); start the page with the title.
+- The banner/cover (`main_screenshot.png`) is NEVER used in index.html — not at the top, not in any
+  section. The page always starts with text (title + summary); screenshots go where they fit.
 - **Icon is standardized:** every Vizion module ships the SAME icon — `assets/vizion_icon.png` (gold
   "V" on navy), copied verbatim. Never generate or crop a per-module icon. 16+ modules already share
   this exact file.
-- **House naming convention:** the cover banner is `main_screenshot.png` (= `images[0]`), a wide
-  branded graphic — NOT a raw app screen. Real app screenshots are `screenshot_1.png`,
-  `screenshot_2.png`, … Never name a real screenshot `main_screenshot`. (`banner.png` is an accepted
-  alternate cover name in older modules; prefer `main_screenshot.png` going forward.)
+- **House naming convention (STRICT):** the cover banner is ALWAYS `main_screenshot.png` (= `images[0]`),
+  a wide branded graphic — NOT a raw app screen, and no other name (not `banner.png`). Real app
+  screenshots are `screenshot_1.png`, `screenshot_2.png`, … Never name a real screenshot `main_screenshot`.
 
 ---
 

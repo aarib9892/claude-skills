@@ -5,24 +5,19 @@
     * Default layout is simple stacked blocks; it is mobile-friendly as-is.
     * Use <table> ONLY for genuinely tabular content (e.g. the optional comparison block below).
     * Images are referenced RELATIVE to static/description/ and must also be listed in manifest `images`.
-    * Cover banner is named main_screenshot.png (= images[0]); app screenshots are screenshot_1.png, screenshot_2.png, …
+    * The cover/banner is ALWAYS named main_screenshot.png and is ONLY the manifest cover (images[0]) — NEVER place it on this page.
+    * App screenshots are screenshot_1.png, screenshot_2.png, …; the page starts with TEXT, and screenshots go in the sections where they fit.
     * Start the file with content — no <!DOCTYPE>, <html>, <head>, or <body>.
     * Replace every {{PLACEHOLDER}} and delete any block you don't use, including this comment.
 -->
 <section style="max-width:960px; margin:0 auto; padding:16px; font-family:Arial,Helvetica,sans-serif; color:#374151; line-height:1.6;">
 
-  <!-- Do NOT lead with the banner image: it's already the listing cover (manifest images[0]),
-       so repeating it here is redundant. Start with the title. -->
+  <!-- Page starts with TEXT. The cover/banner (main_screenshot.png) is NEVER used anywhere on this page. -->
 
   <!-- Title + one-line summary -->
   <div style="text-align:center; margin-bottom:28px;">
     <h1 style="color:#875A7B; font-size:30px; margin:0 0 8px 0;">{{MODULE_NAME}}</h1>
     <p style="font-size:18px; color:#6b7280; margin:0;">{{SUMMARY}}</p>
-  </div>
-
-  <!-- Optional hero GIF (converted from the marketing video) -->
-  <div style="text-align:center; margin-bottom:28px;">
-    <img src="{{HERO_GIF}}" alt="{{MODULE_NAME}} in action" style="max-width:100%; height:auto; border:1px solid #eee; border-radius:8px;"/>
   </div>
 
   <!-- Overview -->
@@ -42,9 +37,16 @@
     <!-- duplicate the block above for each feature -->
   </div>
 
-  <!-- Screenshots — one full-width image per row (repeat as needed) -->
+  <!-- Screenshots & demo — full-width images in a fitting section (repeat as needed).
+       The optional demo GIF (converted from the video) leads here if present. NOT the banner. -->
   <div style="margin-bottom:28px;">
     <h2 style="color:#875A7B; font-size:22px; border-bottom:2px solid #875A7B; padding-bottom:6px;">Screenshots</h2>
+
+    <!-- Optional demo GIF — delete this block if there's no video -->
+    <div style="text-align:center; margin-top:16px;">
+      <img src="{{DEMO_GIF}}" alt="{{MODULE_NAME}} in action" style="max-width:100%; height:auto; border:1px solid #eee; border-radius:8px; margin-bottom:24px;"/>
+    </div>
+
     <div style="text-align:center; margin-top:16px;">
       <img src="{{SCREENSHOT_IMG}}" alt="{{SCREENSHOT_CAPTION}}" style="max-width:100%; height:auto; border:1px solid #eee; border-radius:8px; margin-bottom:16px;"/>
       <p style="color:#6b7280; margin:0 0 24px 0;">{{SCREENSHOT_CAPTION}}</p>
