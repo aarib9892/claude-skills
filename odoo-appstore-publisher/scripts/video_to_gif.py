@@ -53,8 +53,15 @@ def main(argv):
     if "--selftest" in argv:
         _selftest()
         return 0
-    args = [a for a in argv[1:] if not a.startswith("--")]
-    opts = {argv[i]: argv[i + 1] for i in range(len(argv)) if argv[i].startswith("--")}
+    args, opts, i = [], {}, 1
+    while i < len(argv):  # ponytail: hand-parse so "--fps 10" consumes its value, not treats it as positional
+        a = argv[i]
+        if a.startswith("--"):
+            opts[a] = argv[i + 1] if i + 1 < len(argv) else ""
+            i += 2
+        else:
+            args.append(a)
+            i += 1
     if len(args) != 2:
         print(__doc__)
         return 2
