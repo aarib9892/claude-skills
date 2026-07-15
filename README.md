@@ -1,5 +1,8 @@
 # claude-skills
 
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-skills-8A3FFC)](https://code.claude.com/docs/en/skills)
+[![Skills](https://img.shields.io/badge/skills-1-875A7B)](#skills)
+
 Claude Code skills for the Vizion Tools team. Each subdirectory is a self-contained skill.
 
 ## Skills
